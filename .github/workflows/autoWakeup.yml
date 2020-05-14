@@ -11,7 +11,7 @@ on:
   #    - master
   schedule:
     #- cron: "0 */20 1-15 * *"
-    - cron: "*/6 * * * *"
+    - cron: "*/20 1-15 * * *"
   watch:
     types: [started]
    
