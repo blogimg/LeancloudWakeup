@@ -11,7 +11,7 @@ on:
   #    - master
   schedule:
     #- cron: "0 */20 1-15 * *"
-    - cron: "1 * * * *"
+    - cron: "*/6 * * * *"
   watch:
     types: [started]
    
@@ -40,7 +40,7 @@ jobs:
         git config --global user.email AutoWakeUp@email.com
         git config --global user.name AutoWakeUp
         git add .
-        git commit -m "update new refresh_token" -a
+        git commit -m "up" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
