@@ -3,8 +3,9 @@ import sys
 import time
 
 if (len(sys.argv) >= 2):
-    url = sys.argv[1]
+    urls = sys.argv[1].split(',')
 else:
-    url = 'https://www.antmoe.com/'
-req = requests.get(url)
-print(url, req, time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
+    urls = ['https://www.antmoe.com/']
+for url in urls:
+    req = requests.get(url)
+    print(url, req, time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
