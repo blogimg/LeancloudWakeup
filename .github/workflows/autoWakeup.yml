@@ -10,7 +10,7 @@ on:
   #  branches: 
   #    - master
   schedule:
-    - cron: "0 0/25 1-15 * *"
+    - cron: "0 0/20 1-15 * *"
   watch:
     types: [started]
    
@@ -32,12 +32,12 @@ jobs:
       env: 
         $CONFIG_SITE: ${{ secrets.Site }} # 读取评论后台信息
       run: | 
-        python run.py $CONFIG_SITE
+        python run.py ${{ secrets.Site }}
         echo `date +"%Y-%m-%d %H:%M:%S"` begin >> time.log
     - name: Commit #上传新的refresh_token到仓库
       run: |
-        git config --global user.email AutoupdateRobot@email.com
-        git config --global user.name AutoupdateRobot
+        git config --global user.email AutoWakeUp@email.com
+        git config --global user.name AutoWakeUp
         git add .
         git commit -m "update new refresh_token" -a
     - name: Push changes
